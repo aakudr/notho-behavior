@@ -31,7 +31,7 @@ while(cap.isOpened()):
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     gray = cv2.medianBlur(gray, 3)
     
-    ret, thresh = cv2.threshold(gray, 130, 255, cv2.THRESH_BINARY_INV)
+    ret, thresh = cv2.threshold(gray, 115, 255, cv2.THRESH_BINARY_INV)
     ret, img = cv2.threshold(thresh, 254, 1, cv2.THRESH_BINARY)
     skeleton = skeletonize(img)
     
