@@ -1,17 +1,22 @@
 import cv2
 import time
+import os
 
 title_window = 'window'
 thresh_value = 0
 slider_max = 255
+file_extension = 'tvalue'
 
 def on_trackbar(val):
     global thresh_value
     thresh_value = val
     print(thresh_value)
-#    beta = ( 1.0 - alpha )
-#    dst = cv.addWeighted(src1, alpha, src2, beta, 0.0)
-#    cv.imshow(title_window, dst)
+
+def save_file(path, val, ext):
+    #dir = os.path.split(path)
+    f = open(path + '.' + ext, 'w')
+    f.write(str(val))
+    f.close()
 
 PATH = "/home/lab/Downloads/MECLO_C_M_26_83.avi.avi"
 cap = cv2.VideoCapture(PATH)
@@ -32,3 +37,5 @@ while(cap.isOpened()):
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
     time.sleep(0.015)
+
+save_file(PATH, thresh_value, file_extension)
