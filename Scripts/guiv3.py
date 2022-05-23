@@ -31,4 +31,4 @@ while(cap.isOpened()):
     cv2.imshow('title_window', thresh)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
-    time.sleep(0.02)
+    time.sleep(0.015)
